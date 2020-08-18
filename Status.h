@@ -1,6 +1,6 @@
 #pragma once
 
-enum class Result {
+enum class GameStatus {
 	NOT_STARTED,
 	ONGOING,
 	WHITE_WON,

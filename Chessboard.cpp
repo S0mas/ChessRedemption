@@ -2,6 +2,9 @@
 
 void Chessboard::reset() noexcept {}
 
-void Chessboard::doMove(Move const& move) noexcept {}
+void Chessboard::doMove(SimpleMove const& move) noexcept {
+}
 
-bool Chessboard::undoMove() noexcept { return false; }
+bool Chessboard::undoMove() noexcept {
+	return false; 
+}

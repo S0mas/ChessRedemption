@@ -1,12 +1,8 @@
 #pragma once
+#include "Color.h"
 
 class Player {
 public:
-	enum class Color {
-		WHITE,
-		BLACK,
-		NONE
-	};
 private:
 	Color color_;
 public:
