@@ -2,6 +2,7 @@
 #include <functional>
 #include "Position.h"
 #include "Color.h"
+#include "Color.h"
 
 enum class PieceType {
 	PAWN,
@@ -17,7 +18,7 @@ class Piece {
 	Color color_;
 	PieceType type_;
 public:
-	virtual bool move(Position origin, Position destination, bool isAttack) = 0;
+	virtual bool isValidMove(SimpleMove const& move, bool isAttack) const noexcept = 0;
 
 	virtual PieceType type() const noexcept = 0;
 
@@ -25,11 +26,21 @@ public:
 		return false;
 	}
 
+	virtual bool movesThroughCollisions() const noexcept {
+		return false;
+	}
+
 	bool wasMoved() const noexcept {
 		return wasMoved_;
+	}
+
+	void setWasMoved(bool const wasMoved) noexcept {
+		wasMoved_ = wasMoved;
 	}
 
 	Color color() const noexcept {
 		return color_;
 	}
+
+
 };

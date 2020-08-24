@@ -16,7 +16,7 @@ class Game {
 	Player const* activePlayer_ = nullptr;
 	Pieces pieces_;
 	Chessboard chessboard_;
-	Rules rules_;
+	MoveValidator rules_{ chessboard_ };
 
 	void switchActivePlayer() noexcept;
 	bool hasGameEnded() noexcept;
@@ -24,7 +24,7 @@ public:
 	Game() {}
 	void start() noexcept;
 	void reset() noexcept;
-	bool tryToMove(SimpleMove const& move) noexcept;
+	bool move(SimpleMove const& move) noexcept;
 	void undo() noexcept;
 	Player startingPlayer() const noexcept;
 	Player activePlayer() const noexcept;

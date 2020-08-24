@@ -62,16 +62,17 @@ TEST_F(GameTests, undoMove) {
 
 TEST_F(GameTests, tryMove) {
 	//Chessboard* fakeChessboard = FAKE_ALL<Chessboard>();
-	Rules* fakeRules = FAKE_ALL<Rules>();
+	MoveValidator* fakeRules = FAKE_ALL<MoveValidator>();
 	Game* fakeGame = FAKE_ALL<Game>();
 	Game* game = new Game;
 	SimpleMove move(Position::createPosition<'A', 1>(), Position::createPosition<'B', 1>());
-	WHEN_CALLED(fakeRules->isMoveLegal(move)).Return(true);
+	WHEN_CALLED(fakeRules->wasMoveAccepted(move)).Return(true);
 	
 }
 TEST_F(GameTests, positionCreation) {
 	auto p1 = Position::createPosition<'A', 1>();
-
-
-
+}
+TEST_F(GameTests, rules) {
+	Game game;
+	game.move(SimpleMove({ 'A', 1 }, { 'A', 2 }));
 }

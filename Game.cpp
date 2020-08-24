@@ -18,9 +18,8 @@ void Game::reset() noexcept {
 	activePlayer_ = nullptr;
 }
 
-bool Game::tryToMove(SimpleMove const& move) noexcept {
-	if (rules_.isMoveLegal(move)) {
-		chessboard_.doMove(move);
+bool Game::move(SimpleMove const& move) noexcept {
+	if (rules_.wasMoveAccepted(move)) {
 		if(!hasGameEnded())
 			switchActivePlayer();
 		return true;
